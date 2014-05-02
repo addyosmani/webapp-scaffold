@@ -1,0 +1,17 @@
+{
+  "name": "untitled-element",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-pages": "Polymer/core-pages#~0.2.3",
+    "polymer-ui-scaffold": "Polymer/polymer-ui-scaffold#~0.2.3",
+    "polymer-ui-sidebar-menu": "Polymer/polymer-ui-sidebar-menu#~0.2.3",
+    "polymer-ui-submenu-item": "Polymer/polymer-ui-submenu-item#~0.2.3"
+  },
+  "resolutions": {
+    "polymer": "master",
+    "platform": "master",
+    "core-component-page": "master",
+    "core-action-icons": "master"
+  }
+}

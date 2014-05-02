@@ -1,0 +1,101 @@
+<link rel="import" href="../polymer-ui-scaffold/polymer-ui-scaffold.html">
+<link rel="import" href="../polymer-ui-sidebar-menu/polymer-ui-sidebar-menu.html">
+<link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html">
+<link rel="import" href="../polymer-ui-menu-button/polymer-ui-menu-button.html">
+<link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../polymer-ui-submenu-item/polymer-ui-submenu-item.html">
+<link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
+
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <untitled-element></untitled-element>
+
+@element untitled-element
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@url github.io
+-->
+<polymer-element name="untitled-element">
+
+  <template>
+    <style>    
+      :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        left: 0px;
+        top: 0px;
+      }
+      #polymer_ui_scaffold {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+      #polymer_ui_sidebar_menu {
+        width: 200px;
+        height: 100%;
+      }
+      #core_pages {
+        width: 100%;
+        height: 100%;
+        border: 1px solid silver;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+      #section2 {
+        padding: 20px;
+      }
+      #section1 {
+        padding: 20px;
+      }
+      #section {
+        padding: 20px;
+      }
+      #polymer_ui_toolbar {
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        position: absolute;
+      }
+    </style>
+    <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-light-theme">
+      <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <polymer-ui-menu-button selectedclass="polymer-selected" valueattr="name" id="polymer_ui_menu_button" tool icon="dots">
+        <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
+        <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
+      </polymer-ui-menu-button>
+      <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" selectedindex="0" notap="true" id="core_pages">
+        <section id="section1" class="core-selected" active>Page One</section>
+        <section id="section2">Page Two</section>
+        <section id="section3">Page Three</section>
+      </core-pages>
+      <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-dark-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
+        <polymer-ui-menu-item id="polymer_ui_menu_item0" class="polymer-ui-dark-theme polymer-selected" active>Page One</polymer-ui-menu-item>
+        <polymer-ui-menu-item id="polymer_ui_menu_item1" class="polymer-ui-dark-theme">Page Two</polymer-ui-menu-item>
+        <polymer-ui-menu-item id="polymer_ui_menu_item2" class="polymer-ui-dark-theme">Page Three</polymer-ui-menu-item>
+      </polymer-ui-sidebar-menu>
+      <polymer-ui-toolbar theme="polymer-ui-light-theme" id="polymer_ui_toolbar" class="align-center flexbox polymer-ui-light-theme ">
+        <polymer-ui-icon-button icon="refresh" id="polymer_ui_icon_button3" class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      </polymer-ui-toolbar>
+    </polymer-ui-scaffold3>
+  </template>
+
+  <script>
+
+    Polymer('untitled-element', {
+      pageChanged: function() {
+       // this.$.polymer_ui_sidebar_menu.style.display = 'none';
+      }
+    });
+
+  </script>
+
+</polymer-element>
