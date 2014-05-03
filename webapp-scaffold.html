@@ -24,7 +24,7 @@ Element providing a sample web application layout, with routing.
 
   <template>
     <link rel="stylesheet" href="webapp-scaffold.css">
-    <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-light-theme">
+    <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-dark-theme">
       <div flex tool>{{ $.polymer_ui_sidebar_menu.selectedItem.textContent }}</div>
       <polymer-ui-menu-button selectedclass="polymer-selected" valueattr="name" id="polymer_ui_menu_button" tool icon="dots">
         <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
@@ -37,12 +37,12 @@ Element providing a sample web application layout, with routing.
         <section>Page Two content</section>
         <section>Page Three content</section>
       </core-pages>
-      <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-dark-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
+      <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-light-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
         <polymer-ui-menu-item href="demo.html/#page-one" id="polymer_ui_menu_item0" class="polymer-ui-dark-theme">Page One</polymer-ui-menu-item>
         <polymer-ui-menu-item href="demo.html/#page-two" id="polymer_ui_menu_item1" class="polymer-ui-dark-theme">Page Two</polymer-ui-menu-item>
         <polymer-ui-menu-item href="demo.html/#page-three" id="polymer_ui_menu_item2" class="polymer-ui-dark-theme">Page Three</polymer-ui-menu-item>
       </polymer-ui-sidebar-menu>
-      <polymer-ui-toolbar theme="polymer-ui-light-theme" id="polymer_ui_toolbar" class="align-center flexbox polymer-ui-light-theme ">
+      <polymer-ui-toolbar theme="polymer-ui-dark-theme" id="polymer_ui_toolbar" class="align-center flexbox polymer-ui-light-theme ">
         <polymer-ui-icon-button icon="refresh" id="polymer_ui_icon_button3" class="polymer-ui-light-theme"></polymer-ui-icon-button>
       </polymer-ui-toolbar>
     </polymer-ui-scaffold3>
