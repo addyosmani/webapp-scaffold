@@ -1,0 +1,34 @@
+﻿  :host {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    left: 0px;
+    top: 0px;
+  }
+  #polymer_ui_scaffold {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  #polymer_ui_sidebar_menu {
+    width: 200px;
+    height: 100%;
+  }
+  #core_pages {
+    width: 100%;
+    height: 100%;
+    border: 1px solid silver;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  #core_pages > section {
+    padding: 20px;
+  }
+  #polymer_ui_toolbar {
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+  }
