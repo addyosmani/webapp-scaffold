@@ -4,6 +4,7 @@
 <link rel="import" href="../polymer-ui-menu-button/polymer-ui-menu-button.html">
 <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
 <link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../core-input/core-input.html">
 <link rel="import" href="../polymer-ui-submenu-item/polymer-ui-submenu-item.html">
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../flatiron-director/flatiron-director.html">
@@ -33,9 +34,30 @@ Element providing a sample web application layout, with routing.
       <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
       <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
       <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" multi="false" notap="true" id="core_pages">
-        <section>Page One content</section>
-        <section>Page Two content</section>
-        <section>Page Three content</section>
+        <section>
+          <p>
+            Page One content
+          </p>
+          <div>
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <core-input id="single" placeholder="Type something..."></core-input>
+            </label>
+            </div>
+          <div>
+            <label class="item item-input">
+              <span class="input-label">Password</span>
+              <core-input id="single" placeholder="Type something..."></core-input>
+            </label>
+          </div>
+        <div class="padding">
+          <button class="button button-block button-positive">
+            Sign-In
+          </button>
+        </div>
+        </section>
+        <section><p>Page Two content</p></section>
+        <section><p>Page Three content</p></section>
       </core-pages>
       <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-light-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
         <polymer-ui-menu-item href="demo.html/#page-one" id="polymer_ui_menu_item0" class="polymer-ui-dark-theme">Page One</polymer-ui-menu-item>
