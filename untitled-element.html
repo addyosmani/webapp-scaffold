@@ -49,13 +49,7 @@ Element providing solution to no problem in particular.
         left: 0px;
         top: 0px;
       }
-      #section2 {
-        padding: 20px;
-      }
-      #section1 {
-        padding: 20px;
-      }
-      #section {
+      #core_pages > section {
         padding: 20px;
       }
       #polymer_ui_toolbar {
@@ -66,16 +60,17 @@ Element providing solution to no problem in particular.
       }
     </style>
     <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-light-theme">
-      <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
-      <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <div flex tool>{{ $.polymer_ui_sidebar_menu.selectedItem.textContent }}</div>
       <polymer-ui-menu-button selectedclass="polymer-selected" valueattr="name" id="polymer_ui_menu_button" tool icon="dots">
         <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
         <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
       </polymer-ui-menu-button>
+      <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
       <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" selectedindex="0" notap="true" id="core_pages">
-        <section id="section1" class="core-selected" active>Page One</section>
-        <section id="section2">Page Two</section>
-        <section id="section3">Page Three</section>
+        <section id="section1" class="core-selected" active>Page One content</section>
+        <section id="section2">Page Two content</section>
+        <section id="section3">Page Three content</section>
       </core-pages>
       <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-dark-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
         <polymer-ui-menu-item id="polymer_ui_menu_item0" class="polymer-ui-dark-theme polymer-selected" active>Page One</polymer-ui-menu-item>
@@ -92,7 +87,7 @@ Element providing solution to no problem in particular.
 
     Polymer('untitled-element', {
       pageChanged: function() {
-       // this.$.polymer_ui_sidebar_menu.style.display = 'none';
+       this.$.polymer_ui_scaffold.menuActive = false;
       }
     });
 
