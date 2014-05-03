@@ -6,59 +6,24 @@
 <link rel="import" href="../core-pages/core-pages.html">
 <link rel="import" href="../polymer-ui-submenu-item/polymer-ui-submenu-item.html">
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
-
+<link rel="import" href="../flatiron-director/flatiron-director.html">
 
 <!--
-Element providing solution to no problem in particular.
+Element providing a sample web application layout, with routing.
 
 ##### Example
 
-    <untitled-element></untitled-element>
+    <webapp-scaffold></webapp-scaffold>
 
-@element untitled-element
-@blurb Element providing solution to no problem in particular.
+@element webapp-scaffold
+@blurb Element providing a sample web application layout, with routing.
 @status alpha
-@url github.io
+@homepage http://github.com/addyosmani/webapp-scaffold
 -->
-<polymer-element name="untitled-element">
+<polymer-element name="webapp-scaffold" attributes="route">
 
   <template>
-    <style>    
-      :host {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        left: 0px;
-        top: 0px;
-      }
-      #polymer_ui_scaffold {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-      }
-      #polymer_ui_sidebar_menu {
-        width: 200px;
-        height: 100%;
-      }
-      #core_pages {
-        width: 100%;
-        height: 100%;
-        border: 1px solid silver;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-      }
-      #core_pages > section {
-        padding: 20px;
-      }
-      #polymer_ui_toolbar {
-        right: 0px;
-        left: 0px;
-        bottom: 0px;
-        position: absolute;
-      }
-    </style>
+    <link rel="stylesheet" href="webapp-scaffold.css">
     <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-light-theme">
       <div flex tool>{{ $.polymer_ui_sidebar_menu.selectedItem.textContent }}</div>
       <polymer-ui-menu-button selectedclass="polymer-selected" valueattr="name" id="polymer_ui_menu_button" tool icon="dots">
@@ -67,30 +32,43 @@ Element providing solution to no problem in particular.
       </polymer-ui-menu-button>
       <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
       <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
-      <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" selectedindex="0" notap="true" id="core_pages">
-        <section id="section1" class="core-selected" active>Page One content</section>
-        <section id="section2">Page Two content</section>
-        <section id="section3">Page Three content</section>
+      <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" multi="false" notap="true" id="core_pages">
+        <section>Page One content</section>
+        <section>Page Two content</section>
+        <section>Page Three content</section>
       </core-pages>
       <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-dark-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
-        <polymer-ui-menu-item id="polymer_ui_menu_item0" class="polymer-ui-dark-theme polymer-selected" active>Page One</polymer-ui-menu-item>
-        <polymer-ui-menu-item id="polymer_ui_menu_item1" class="polymer-ui-dark-theme">Page Two</polymer-ui-menu-item>
-        <polymer-ui-menu-item id="polymer_ui_menu_item2" class="polymer-ui-dark-theme">Page Three</polymer-ui-menu-item>
+        <polymer-ui-menu-item href="demo.html/#page-one" id="polymer_ui_menu_item0" class="polymer-ui-dark-theme">Page One</polymer-ui-menu-item>
+        <polymer-ui-menu-item href="demo.html/#page-two" id="polymer_ui_menu_item1" class="polymer-ui-dark-theme">Page Two</polymer-ui-menu-item>
+        <polymer-ui-menu-item href="demo.html/#page-three" id="polymer_ui_menu_item2" class="polymer-ui-dark-theme">Page Three</polymer-ui-menu-item>
       </polymer-ui-sidebar-menu>
       <polymer-ui-toolbar theme="polymer-ui-light-theme" id="polymer_ui_toolbar" class="align-center flexbox polymer-ui-light-theme ">
         <polymer-ui-icon-button icon="refresh" id="polymer_ui_icon_button3" class="polymer-ui-light-theme"></polymer-ui-icon-button>
       </polymer-ui-toolbar>
     </polymer-ui-scaffold3>
+
+    <flatiron-director route="{{route}}" autoHash></flatiron-director>
   </template>
 
   <script>
-
-    Polymer('untitled-element', {
+    Polymer('webapp-scaffold', {
+      // Mappings for route-name and core-page index
+      routes: {
+        'page-one':1,
+        'page-two':2,
+        'page-three':3
+      },
+      ready: function(){
+        this.route = this.route || 'page-one';
+      },
+      routeChanged: function() {
+        this.$.core_pages.selected = this.routes[this.route] - 1;
+        this.fire('route-changed');
+      },
       pageChanged: function() {
-       this.$.polymer_ui_scaffold.menuActive = false;
+        this.$.polymer_ui_scaffold.menuActive = false;
       }
     });
-
   </script>
 
 </polymer-element>
