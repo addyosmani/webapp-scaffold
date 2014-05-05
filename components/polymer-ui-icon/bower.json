@@ -1,0 +1,11 @@
+{
+  "name": "polymer-ui-icon",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.2.3",
+    "polymer-ui-theme-aware": "Polymer/polymer-ui-theme-aware#0.2.3",
+    "polymer-ui-iconset": "Polymer/polymer-ui-iconset#0.2.3",
+    "polymer-ui-action-icons": "Polymer/polymer-ui-action-icons#0.2.3"
+  },
+  "version": "0.2.3"
+}

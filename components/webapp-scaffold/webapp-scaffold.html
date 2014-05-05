@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer-ui-scaffold/polymer-ui-scaffold.html">
+<link rel="import" href="../polymer-ui-sidebar-menu/polymer-ui-sidebar-menu.html">
+<link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html">
+<link rel="import" href="../polymer-ui-menu-button/polymer-ui-menu-button.html">
+<link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../core-input/core-input.html">
+<link rel="import" href="../polymer-ui-submenu-item/polymer-ui-submenu-item.html">
+<link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
+<link rel="import" href="../flatiron-director/flatiron-director.html">
+
+<!--
+Element providing a sample web application layout, with routing.
+
+##### Example
+
+    <webapp-scaffold></webapp-scaffold>
+
+@element webapp-scaffold
+@blurb Element providing a sample web application layout, with routing.
+@status alpha
+@homepage http://github.com/addyosmani/webapp-scaffold
+-->
+<polymer-element name="webapp-scaffold" attributes="route">
+
+  <template>
+    <link rel="stylesheet" href="webapp-scaffold.css">
+    <polymer-ui-scaffold3 id="polymer_ui_scaffold" menuactive="false" theme="polymer-ui-dark-theme">
+      <div flex tool>{{ $.polymer_ui_sidebar_menu.selectedItem.textContent }}</div>
+      <polymer-ui-menu-button selectedclass="polymer-selected" valueattr="name" id="polymer_ui_menu_button" tool icon="dots">
+        <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
+        <polymer-ui-menu-item class="polymer-ui-light-theme">Item</polymer-ui-menu-item>
+      </polymer-ui-menu-button>
+      <polymer-ui-icon-button icon="account" id="polymer_ui_icon_button" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="briefcase" id="polymer_ui_icon_button1" tool class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      <core-pages on-core-select="{{pageChanged}}" selected="{{ $.polymer_ui_sidebar_menu.selected }}" multi="false" notap="true" id="core_pages">
+        <section><p>Page One content</p></section>
+        <section><p>Page Two content</p></section>
+        <section><p>Page Three content</p></section>
+      </core-pages>
+      <polymer-ui-sidebar-menu label="Menu" theme="polymer-ui-light-theme" selected="0" selectedindex="0" id="polymer_ui_sidebar_menu" navigation class="column polymer-ui-dark-theme flexbox">
+        <polymer-ui-menu-item href="demo.html/#page-one" id="polymer_ui_menu_item0" class="polymer-ui-dark-theme">Page One</polymer-ui-menu-item>
+        <polymer-ui-menu-item href="demo.html/#page-two" id="polymer_ui_menu_item1" class="polymer-ui-dark-theme">Page Two</polymer-ui-menu-item>
+        <polymer-ui-menu-item href="demo.html/#page-three" id="polymer_ui_menu_item2" class="polymer-ui-dark-theme">Page Three</polymer-ui-menu-item>
+      </polymer-ui-sidebar-menu>
+      <polymer-ui-toolbar theme="polymer-ui-dark-theme" id="polymer_ui_toolbar" class="align-center flexbox polymer-ui-light-theme ">
+        <polymer-ui-icon-button icon="refresh" id="polymer_ui_icon_button3" class="polymer-ui-light-theme"></polymer-ui-icon-button>
+      </polymer-ui-toolbar>
+    </polymer-ui-scaffold3>
+
+    <flatiron-director route="{{route}}" autoHash></flatiron-director>
+  </template>
+
+  <script>
+    Polymer('webapp-scaffold', {
+      // Mappings for route-name and core-page index
+      routes: {
+        '': 1,
+        'page-one':1,
+        'page-two':2,
+        'page-three':3
+      },
+      ready: function(){
+        this.route = this.route || 'page-one';
+      },
+      routeChanged: function() {
+        this.$.core_pages.selected = this.routes[this.route] - 1;
+        this.fire('route-changed');
+      },
+      pageChanged: function() {
+        this.$.polymer_ui_scaffold.menuActive = false;
+      }
+    });
+  </script>
+
+</polymer-element>

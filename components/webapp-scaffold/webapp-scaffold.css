@@ -1,0 +1,136 @@
+﻿  :host {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      left: 0px;
+      top: 0px;
+  }
+  #polymer_ui_scaffold {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+  }
+  #polymer_ui_sidebar_menu {
+      width: 200px;
+      height: 100%;
+  }
+  #core_pages {
+      width: 100%;
+      height: 100%;
+      border: 1px solid silver;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+  }
+  #core_pages > section > p {
+      margin: 20px;
+  }
+  /* @polyfill #polymer_ui_scaffold::shadow polymer-ui-toolbar */
+  #polymer_ui_scaffold::shadow polymer-ui-toolbar {
+      background: #4a87ee;
+  }
+  
+  #polymer_ui_toolbar {
+      right: 0px;
+      left: 0px;
+      bottom: 0px;
+      position: absolute;
+      background: #4a87ee;
+  }
+  #core_pages /shadow-deep/ .input-label {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 100px;
+      -moz-box-flex: 1;
+      -moz-flex: 1 0 100px;
+      -ms-flex: 1 0 100px;
+      flex: 1 0 100px;
+      display: table;
+      padding: 7px 10px 7px 3px;
+      max-width: 200px;
+      width: 35%;
+      color: #444;
+      font-weight: bold;
+      font-size: 14px;
+  }
+  #core_pages /shadow-deep/ .item {
+      border-color: #ddd;
+      background-color: #fff;
+      color: #444;
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin: -1px;
+      padding: 15px;
+      border-width: 1px;
+      border-style: solid;
+      font-size: 16px;
+  }
+  #core_pages /shadow-deep/ .item-input {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6px 0 5px 8px;
+  }
+  #core_pages /shadow-deep/ .button {
+      border-color: #b2b2b2;
+      background-color: #f8f8f8;
+      color: #444;
+      position: relative;
+      display: inline-block;
+      padding: 1px 12px 0 12px;
+      min-width: 52px;
+      min-height: 47px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 2px;
+      vertical-align: top;
+      text-align: center;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      line-height: 42px;
+      cursor: pointer;
+  }
+  #core_pages /shadow-deep/ .button:hover {
+      color: #444;
+      text-decoration: none;
+  }
+  #core_pages /shadow-deep/ .button.active, .button.activated {
+      border-color: #a2a2a2;
+      background-color: #e5e5e5;
+      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+  }
+  #core_pages /shadow-deep/ .button:after {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      bottom: -6px;
+      left: -8px;
+      content:' ';
+  }
+  #core_pages /shadow-deep/ .padding {
+      width:90%;
+      margin:0 auto;
+  }
+  #core_pages /shadow-deep/ .button.button-positive {
+      border-color: #145fd7;
+      background-color: #4a87ee;
+      color: #fff;
+  }
+  #core_pages /shadow-deep/ .button.button-block, #core_pages /deep/ .button.button-full {
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+  #core_pages /shadow-deep/ button.button-block, #core_pages /deep/ button.button-full, #core_pages /deep/ .button-full > button.button, input.button.button-block {
+      width: 100%;
+  }

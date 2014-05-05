@@ -1,0 +1,19 @@
+{
+  "name": "polymer-selector",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.2.3",
+    "polymer-selection": "Polymer/polymer-selection#0.2.3"
+  },
+  "version": "0.2.3",
+  "homepage": "https://github.com/Polymer/polymer-selector",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.3",
+    "commit": "c613c9327fbe04536e6129ba4d5c295975b0baaf"
+  },
+  "_source": "git://github.com/Polymer/polymer-selector.git",
+  "_target": "0.2.3",
+  "_originalSource": "Polymer/polymer-selector"
+}

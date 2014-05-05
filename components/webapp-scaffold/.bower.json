@@ -1,0 +1,30 @@
+{
+  "name": "webapp-scaffold",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-pages": "Polymer/core-pages#~0.2.3",
+    "polymer-ui-scaffold": "Polymer/polymer-ui-scaffold#~0.2.3",
+    "polymer-ui-sidebar-menu": "Polymer/polymer-ui-sidebar-menu#~0.2.3",
+    "polymer-ui-submenu-item": "Polymer/polymer-ui-submenu-item#~0.2.3",
+    "flatiron-director": "PolymerLabs/flatiron-director#~0.2.3",
+    "core-input": "Polymer/core-input#~0.2.3"
+  },
+  "resolutions": {
+    "polymer": "master",
+    "platform": "master",
+    "core-component-page": "master",
+    "core-action-icons": "master"
+  },
+  "homepage": "https://github.com/addyosmani/webapp-scaffold",
+  "_release": "8c73539750",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8c73539750779a938c37ba8d0e109b57ee1d5038"
+  },
+  "_source": "git://github.com/addyosmani/webapp-scaffold.git",
+  "_target": "master",
+  "_originalSource": "addyosmani/webapp-scaffold",
+  "_direct": true
+}
